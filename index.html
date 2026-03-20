@@ -391,9 +391,19 @@
     }
 
     .service-icon {
-      font-size: 2rem;
+      width: 48px;
+      height: 48px;
+      background: var(--blue-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin-bottom: 18px;
-      display: block;
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
     }
 
     .service-card h3 {
@@ -562,7 +572,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
+    }
+
+    .contact-detail-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: rgba(255,255,255,0.85);
     }
 
     .contact-detail-text {
@@ -750,7 +765,43 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+    }
+
+    .ci-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--blue);
+    }
+
+    /* Why us SVG icons */
+    .why-stat-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .why-stat-icon svg {
+      width: 36px;
+      height: 36px;
+      stroke: rgba(255,255,255,0.9);
+    }
+
+    /* Map embed */
+    .map-wrap {
+      margin-top: 60px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+
+    .map-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 340px;
+      border: none;
     }
 
     .ci-text {
@@ -1067,7 +1118,9 @@
         <div class="services-grid">
           <!-- Card 1 -->
           <div class="service-card reveal">
-            <span class="service-icon" aria-hidden="true">📋</span>
+            <div class="service-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#5B8FD4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg>
+            </div>
             <h3>Personal Tax</h3>
             <!-- CHANGE: Adjust service description if needed -->
             <p>From simple returns to complex filings. T slips, efiling, and CRA correspondence handled on your behalf.</p>
@@ -1075,7 +1128,9 @@
 
           <!-- Card 2 -->
           <div class="service-card reveal">
-            <span class="service-icon" aria-hidden="true">📒</span>
+            <div class="service-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#5B8FD4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
             <h3>Bookkeeping</h3>
             <!-- CHANGE: Adjust service description if needed -->
             <p>Full cycle accounting. Accounts receivable, payable, payroll, GST, PST and more — done right, every time.</p>
@@ -1083,7 +1138,9 @@
 
           <!-- Card 3 -->
           <div class="service-card reveal">
-            <span class="service-icon" aria-hidden="true">🧾</span>
+            <div class="service-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#5B8FD4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+            </div>
             <h3>Tax Preparation</h3>
             <!-- CHANGE: Adjust pricing details if needed -->
             <p>Personal and business returns prepared accurately. Low income efiling from $25. No surprises, no stress.</p>
@@ -1091,7 +1148,9 @@
 
           <!-- Card 4 -->
           <div class="service-card reveal">
-            <span class="service-icon" aria-hidden="true">💼</span>
+            <div class="service-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#5B8FD4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
             <h3>Payroll Services</h3>
             <!-- CHANGE: Adjust service description if needed -->
             <p>We manage your payroll so your team gets paid correctly and on time. Remittances and records included.</p>
@@ -1114,16 +1173,22 @@
         <div class="why-stat-label">Years<br/>Experience</div>
       </div>
       <div class="why-stat reveal">
-        <div class="why-stat-number">&#127968;</div>
+        <div class="why-stat-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
         <div class="why-stat-label">Family<br/>Owned</div>
       </div>
       <div class="why-stat reveal">
-        <div class="why-stat-number">&#128663;</div>
+        <div class="why-stat-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
         <div class="why-stat-label">Pick Up &amp;<br/>Drop Off</div>
       </div>
       <div class="why-stat reveal">
-        <div class="why-stat-number" style="font-size: 1.3rem; padding-top: 6px;">QB&amp;<br/>Sage 50</div>
-        <div class="why-stat-label">Certified</div>
+        <div class="why-stat-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </div>
+        <div class="why-stat-label">QB &amp; Sage 50<br/>Certified</div>
       </div>
     </div>
   </section>
@@ -1161,16 +1226,22 @@
           <h4>Reach Us Directly</h4>
 
           <div class="contact-detail">
-            <div class="contact-detail-icon" aria-hidden="true">📍</div>
+            <div class="contact-detail-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
             <div class="contact-detail-text">
               <span class="contact-detail-label">Address</span>
               <!-- CHANGE: Update address if it changes -->
-              <span class="contact-detail-value">382 Margaret Avenue<br/>Winnipeg MB R2V 1T9</span>
+              <span class="contact-detail-value">
+                <a href="https://maps.google.com/?q=382+Margaret+Avenue+Winnipeg+MB+R2V+1T9" target="_blank" rel="noopener">382 Margaret Avenue<br/>Winnipeg MB R2V 1T9</a>
+              </span>
             </div>
           </div>
 
           <div class="contact-detail">
-            <div class="contact-detail-icon" aria-hidden="true">📞</div>
+            <div class="contact-detail-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+            </div>
             <div class="contact-detail-text">
               <span class="contact-detail-label">Phone</span>
               <!-- CHANGE: Update phone number if it changes -->
@@ -1181,7 +1252,9 @@
           </div>
 
           <div class="contact-detail">
-            <div class="contact-detail-icon" aria-hidden="true">✉️</div>
+            <div class="contact-detail-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
             <div class="contact-detail-text">
               <span class="contact-detail-label">Email</span>
               <!-- CHANGE: Update email address if it changes -->
@@ -1192,7 +1265,9 @@
           </div>
 
           <div class="contact-detail">
-            <div class="contact-detail-icon" aria-hidden="true">👤</div>
+            <div class="contact-detail-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
             <div class="contact-detail-text">
               <span class="contact-detail-label">Owner</span>
               <!-- CHANGE: Update owner name if it changes -->
@@ -1275,16 +1350,22 @@
           <h3>Contact Details</h3>
 
           <div class="contact-info-item">
-            <div class="ci-icon" aria-hidden="true">📍</div>
+            <div class="ci-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
             <div class="ci-text">
               <span class="ci-label">Address</span>
               <!-- CHANGE: Update if address changes -->
-              <span class="ci-value">382 Margaret Avenue<br/>Winnipeg MB R2V 1T9</span>
+              <span class="ci-value">
+                <a href="https://maps.google.com/?q=382+Margaret+Avenue+Winnipeg+MB+R2V+1T9" target="_blank" rel="noopener">382 Margaret Avenue<br/>Winnipeg MB R2V 1T9</a>
+              </span>
             </div>
           </div>
 
           <div class="contact-info-item">
-            <div class="ci-icon" aria-hidden="true">📞</div>
+            <div class="ci-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+            </div>
             <div class="ci-text">
               <span class="ci-label">Phone</span>
               <!-- CHANGE: Update if phone number changes -->
@@ -1293,7 +1374,9 @@
           </div>
 
           <div class="contact-info-item">
-            <div class="ci-icon" aria-hidden="true">✉️</div>
+            <div class="ci-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
             <div class="ci-text">
               <span class="ci-label">Email</span>
               <!-- CHANGE: Update if email changes -->
@@ -1302,7 +1385,9 @@
           </div>
 
           <div class="contact-info-item">
-            <div class="ci-icon" aria-hidden="true">👤</div>
+            <div class="ci-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
             <div class="ci-text">
               <span class="ci-label">Owner</span>
               <!-- CHANGE: Update if owner name changes -->
@@ -1311,7 +1396,9 @@
           </div>
 
           <div class="contact-info-item">
-            <div class="ci-icon" aria-hidden="true">🚗</div>
+            <div class="ci-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
             <div class="ci-text">
               <span class="ci-label">Service Area</span>
               <span class="ci-value">Winnipeg, Manitoba<br/>Pick up &amp; drop off available</span>
@@ -1320,6 +1407,21 @@
         </div>
 
       </div>
+
+      <!-- Google Maps embed -->
+      <div class="map-wrap reveal">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2569.3!2d-97.1384!3d49.9272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea7b3b3b3b3b3b%3A0x0!2s382+Margaret+Ave%2C+Winnipeg%2C+MB+R2V+1T9!5e0!3m2!1sen!2sca!4v1"
+          width="100%"
+          height="340"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ben's Bookkeeping Services location">
+        </iframe>
+      </div>
+
     </div>
   </section>
 
