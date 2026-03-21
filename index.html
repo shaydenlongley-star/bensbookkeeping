@@ -1259,6 +1259,355 @@
     }
 
     /* ─────────────────────────────────────────────
+       COUNTDOWN BANNER
+    ───────────────────────────────────────────── */
+    .countdown-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      font-variant-numeric: tabular-nums;
+      margin: 0 8px;
+    }
+
+    .countdown-unit {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 1px;
+      font-weight: 700;
+    }
+
+    .countdown-unit small {
+      font-size: 0.66rem;
+      font-weight: 400;
+      opacity: 0.78;
+      margin-right: 4px;
+    }
+
+    .banner-sep {
+      opacity: 0.45;
+      margin: 0 8px;
+    }
+
+    /* ─────────────────────────────────────────────
+       CALCULATOR
+    ───────────────────────────────────────────── */
+    #calculator {
+      background: var(--grey-bg);
+      padding: 100px 0;
+    }
+
+    .calc-intro {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .calc-intro h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--dark);
+    }
+
+    .calc-intro p {
+      color: var(--grey-text);
+      font-size: 0.97rem;
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 14px auto 0;
+    }
+
+    .calc-card {
+      max-width: 760px;
+      margin: 0 auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      border: 1px solid rgba(91,143,212,0.1);
+    }
+
+    .calc-inputs {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
+      align-items: center;
+      gap: 20px;
+      padding: 48px;
+      background: var(--white);
+    }
+
+    .calc-field label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--grey-text);
+      margin-bottom: 10px;
+    }
+
+    .calc-input-wrap {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid rgba(91,143,212,0.22);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .calc-input-wrap:focus-within {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(91,143,212,0.1);
+    }
+
+    .calc-input-wrap input {
+      flex: 1;
+      min-width: 0;
+      border: none;
+      outline: none;
+      padding: 14px 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      background: transparent;
+    }
+
+    .calc-input-wrap input::placeholder {
+      font-weight: 400;
+      color: #c0c8d8;
+    }
+
+    .calc-prefix {
+      padding: 0 8px 0 14px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue);
+    }
+
+    .calc-suffix {
+      padding: 0 14px 0 4px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--grey-text);
+      white-space: nowrap;
+    }
+
+    .calc-arrow-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .calc-arrow-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: rgba(91,143,212,0.35);
+    }
+
+    .calc-result-panel {
+      background: var(--navy);
+      padding: 44px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calc-result-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(-55deg, transparent, transparent 18px, rgba(91,143,212,0.07) 18px, rgba(91,143,212,0.07) 20px);
+      pointer-events: none;
+    }
+
+    .calc-result-panel > * { position: relative; z-index: 1; }
+
+    .calc-empty-state {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.35);
+      font-style: italic;
+    }
+
+    .calc-output-wrap { display: none; }
+
+    .calc-output-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 10px;
+    }
+
+    .calc-output-number {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+
+    .calc-output-sub {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.65;
+      max-width: 400px;
+      margin: 0 auto 28px;
+    }
+
+    @media (max-width: 700px) {
+      .calc-inputs {
+        grid-template-columns: 1fr;
+        padding: 32px 24px;
+      }
+      .calc-arrow-icon svg { transform: rotate(90deg); }
+      .calc-result-panel { padding: 36px 24px; }
+    }
+
+    /* ─────────────────────────────────────────────
+       CHECKLIST
+    ───────────────────────────────────────────── */
+    #checklist {
+      background: var(--white);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%23ffffff'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23f0f0f0' opacity='0.4'/%3E%3C/svg%3E");
+      padding: 100px 0;
+    }
+
+    .checklist-intro {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .checklist-intro h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      color: var(--dark);
+    }
+
+    .checklist-intro p {
+      color: var(--grey-text);
+      font-size: 0.97rem;
+      line-height: 1.7;
+      max-width: 500px;
+      margin: 14px auto 0;
+    }
+
+    .checklist-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 44px;
+    }
+
+    .checklist-tab {
+      padding: 10px 24px;
+      border-radius: 50px;
+      border: 1.5px solid rgba(91,143,212,0.25);
+      background: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.87rem;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      transition: all var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .checklist-tab:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .checklist-tab.active {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(91,143,212,0.3);
+    }
+
+    .checklist-panels {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .checklist-panel {
+      display: none;
+      background: var(--grey-bg);
+      border-radius: var(--radius);
+      padding: 44px;
+      box-shadow: var(--shadow);
+      animation: panelFadeIn 0.3s ease;
+    }
+
+    .checklist-panel.active { display: block; }
+
+    @keyframes panelFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .checklist-panel-title {
+      font-size: 1.05rem;
+      color: var(--dark);
+      margin-bottom: 24px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .checklist-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .checklist-items li {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      font-size: 0.92rem;
+      color: var(--grey-text);
+      line-height: 1.5;
+    }
+
+    .check-dot {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--blue-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .check-dot svg {
+      width: 11px;
+      height: 11px;
+      stroke: var(--blue);
+    }
+
+    .checklist-footer {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(91,143,212,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .checklist-footer p {
+      font-size: 0.88rem;
+      color: var(--grey-text);
+      margin: 0;
+    }
+
+    @media (max-width: 700px) {
+      .checklist-panel { padding: 28px 20px; }
+      .checklist-footer { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ─────────────────────────────────────────────
        PREMIUM FEATURES 1–13
     ───────────────────────────────────────────── */
 
@@ -1460,7 +1809,16 @@
        TAX DEADLINE BANNER
   ═══════════════════════════════════════ -->
   <div id="tax-banner" role="complementary" aria-label="Tax deadline notice">
-    📅 CRA Tax Deadline: April 30, 2026 &mdash; Don't leave it to the last minute. <a href="#contact">&nbsp;Book your free consultation &rarr;</a>
+    <span>CRA Tax Deadline: April 30, 2026</span>
+    <span class="banner-sep" aria-hidden="true">|</span>
+    <span class="countdown-wrap" aria-live="polite" aria-label="Time remaining">
+      <span class="countdown-unit"><span id="cd-days">--</span><small>d</small></span>
+      <span class="countdown-unit"><span id="cd-hours">--</span><small>h</small></span>
+      <span class="countdown-unit"><span id="cd-mins">--</span><small>m</small></span>
+      <span class="countdown-unit"><span id="cd-secs">--</span><small>s</small></span>
+    </span>
+    <span class="banner-sep" aria-hidden="true">—</span>
+    <a href="#contact">Book your free consultation &rarr;</a>
   </div>
 
   <!-- ═══════════════════════════════════════
@@ -1735,6 +2093,58 @@
 
 
   <!-- ═══════════════════════════════════════
+       CALCULATOR
+  ═══════════════════════════════════════ -->
+  <section id="calculator" aria-labelledby="calc-heading">
+    <div class="container">
+
+      <div class="calc-intro reveal">
+        <p class="section-label">Free Tool</p>
+        <h2 id="calc-heading">Are You Paying More To DIY?</h2>
+        <p>Find out what your bookkeeping is actually costing you in lost time every year.</p>
+      </div>
+
+      <div class="calc-card reveal">
+
+        <div class="calc-inputs">
+          <div class="calc-field">
+            <label for="calc-hours">Hours on bookkeeping per month</label>
+            <div class="calc-input-wrap">
+              <input type="number" id="calc-hours" min="0" max="200" placeholder="e.g. 8" />
+              <span class="calc-suffix">hrs / mo</span>
+            </div>
+          </div>
+
+          <div class="calc-arrow-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </div>
+
+          <div class="calc-field">
+            <label for="calc-rate">What your time is worth</label>
+            <div class="calc-input-wrap">
+              <span class="calc-prefix">$</span>
+              <input type="number" id="calc-rate" min="0" max="9999" placeholder="e.g. 40" />
+              <span class="calc-suffix">/ hr</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-result-panel">
+          <p class="calc-empty-state" id="calc-empty">Enter your hours and rate above to see your result.</p>
+          <div class="calc-output-wrap" id="calc-output-wrap">
+            <p class="calc-output-label">Your bookkeeping is costing you</p>
+            <p class="calc-output-number" id="calc-output">$0</p>
+            <p class="calc-output-sub">per year in time — time you could spend growing your business, or with family.</p>
+            <a href="#contact" class="btn btn-white">Get a Free Quote Instead &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
        CTA BANNER
   ═══════════════════════════════════════ -->
   <section id="cta" aria-label="Call to action">
@@ -1744,6 +2154,139 @@
       <p class="reveal">Don't leave it to the last minute. Book a free consultation today.</p>
       <!-- CHANGE: Update href to your booking link or keep as contact anchor -->
       <a href="#contact" class="btn btn-white reveal">Book a Free Consultation</a>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       DOCUMENT CHECKLIST
+  ═══════════════════════════════════════ -->
+  <section id="checklist" aria-labelledby="checklist-heading">
+    <div class="container">
+
+      <div class="checklist-intro reveal">
+        <p class="section-label">Prepare With Confidence</p>
+        <h2 id="checklist-heading">What Do I Need To Bring?</h2>
+        <p>Select your filing situation and get a personalised list of documents to gather.</p>
+      </div>
+
+      <div class="checklist-tabs reveal" role="tablist">
+        <button class="checklist-tab active" data-panel="panel-employed" role="tab" aria-selected="true">Employed</button>
+        <button class="checklist-tab" data-panel="panel-selfemployed" role="tab" aria-selected="false">Self-Employed</button>
+        <button class="checklist-tab" data-panel="panel-both" role="tab" aria-selected="false">Both</button>
+        <button class="checklist-tab" data-panel="panel-student" role="tab" aria-selected="false">Student</button>
+        <button class="checklist-tab" data-panel="panel-retired" role="tab" aria-selected="false">Retired</button>
+      </div>
+
+      <div class="checklist-panels">
+
+        <!-- Employed -->
+        <div class="checklist-panel active" id="panel-employed" role="tabpanel">
+          <p class="checklist-panel-title">Documents for Employed Individuals</p>
+          <ul class="checklist-items">
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>T4 slip from each employer</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>RRSP contribution receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Medical expense receipts (prescriptions, dental, vision, etc.)</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Charitable donation receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Child care expense receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Union or professional dues receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Home office expense records (if working from home)</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Moving expense receipts (if relocated for work)</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Previous year's Notice of Assessment</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Social Insurance Number (SIN)</li>
+          </ul>
+          <div class="checklist-footer">
+            <p>Not sure if you have everything? We'll walk you through it.</p>
+            <a href="#contact" class="btn btn-primary" style="padding: 11px 22px; font-size:0.85rem;">Book a Free Consultation</a>
+          </div>
+        </div>
+
+        <!-- Self-Employed -->
+        <div class="checklist-panel" id="panel-selfemployed" role="tabpanel">
+          <p class="checklist-panel-title">Documents for Self-Employed Individuals</p>
+          <ul class="checklist-items">
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>All business income records and invoices</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>All business expense receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>GST/HST return records</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Vehicle logbook and fuel/maintenance receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Home office expenses (mortgage/rent, utilities)</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Business insurance documents</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Equipment and asset purchase receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Professional and legal fees</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>RRSP contribution receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Previous year's Notice of Assessment</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Social Insurance Number (SIN)</li>
+          </ul>
+          <div class="checklist-footer">
+            <p>Not sure if you have everything? We'll walk you through it.</p>
+            <a href="#contact" class="btn btn-primary" style="padding: 11px 22px; font-size:0.85rem;">Book a Free Consultation</a>
+          </div>
+        </div>
+
+        <!-- Both -->
+        <div class="checklist-panel" id="panel-both" role="tabpanel">
+          <p class="checklist-panel-title">Documents for Employed + Self-Employed</p>
+          <ul class="checklist-items">
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>T4 slip from each employer</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>All business income records and invoices</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>All business expense receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>GST/HST return records</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Vehicle logbook and fuel/maintenance receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Home office expenses (mortgage/rent, utilities)</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Business insurance documents</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>RRSP contribution receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Medical expense receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Charitable donation receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Previous year's Notice of Assessment</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Social Insurance Number (SIN)</li>
+          </ul>
+          <div class="checklist-footer">
+            <p>Not sure if you have everything? We'll walk you through it.</p>
+            <a href="#contact" class="btn btn-primary" style="padding: 11px 22px; font-size:0.85rem;">Book a Free Consultation</a>
+          </div>
+        </div>
+
+        <!-- Student -->
+        <div class="checklist-panel" id="panel-student" role="tabpanel">
+          <p class="checklist-panel-title">Documents for Students</p>
+          <ul class="checklist-items">
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>T4 slip (if employed part-time or full-time)</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>T2202 tuition and enrolment certificate</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>T4A (scholarships, bursaries, or awards)</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Student loan interest statement</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Moving expense receipts (if moved to attend school)</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>RRSP contribution receipts (if applicable)</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Charitable donation receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Previous year's Notice of Assessment</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Social Insurance Number (SIN)</li>
+          </ul>
+          <div class="checklist-footer">
+            <p>Not sure if you have everything? We'll walk you through it.</p>
+            <a href="#contact" class="btn btn-primary" style="padding: 11px 22px; font-size:0.85rem;">Book a Free Consultation</a>
+          </div>
+        </div>
+
+        <!-- Retired -->
+        <div class="checklist-panel" id="panel-retired" role="tabpanel">
+          <p class="checklist-panel-title">Documents for Retired Individuals</p>
+          <ul class="checklist-items">
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>T4A (pension income)</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>T4A(OAS) (old age security)</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>T4A(P) (CPP or QPP payments)</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>T5 (investment income, interest, dividends)</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>RRSP or RRIF withdrawal slips</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Medical expense receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Charitable donation receipts</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Previous year's Notice of Assessment</li>
+            <li><span class="check-dot" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="2,6 5,9 10,3"/></svg></span>Social Insurance Number (SIN)</li>
+          </ul>
+          <div class="checklist-footer">
+            <p>Not sure if you have everything? We'll walk you through it.</p>
+            <a href="#contact" class="btn btn-primary" style="padding: 11px 22px; font-size:0.85rem;">Book a Free Consultation</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -2173,6 +2716,74 @@
     if (heroSection) {
       floatObserver.observe(heroSection);
     }
+
+    // ── Countdown timer ────────────────────────
+    (function() {
+      const deadline = new Date('2026-04-30T23:59:59-05:00');
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+
+      function tick() {
+        const diff = deadline - new Date();
+        if (diff <= 0) {
+          ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
+            document.getElementById(id).textContent = '0';
+          });
+          return;
+        }
+        document.getElementById('cd-days').textContent  = Math.floor(diff / 86400000);
+        document.getElementById('cd-hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+        document.getElementById('cd-mins').textContent  = pad(Math.floor((diff % 3600000) / 60000));
+        document.getElementById('cd-secs').textContent  = pad(Math.floor((diff % 60000) / 1000));
+      }
+
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    // ── Calculator ─────────────────────────────
+    (function() {
+      const hoursInput  = document.getElementById('calc-hours');
+      const rateInput   = document.getElementById('calc-rate');
+      const outputEl    = document.getElementById('calc-output');
+      const outputWrap  = document.getElementById('calc-output-wrap');
+      const emptyEl     = document.getElementById('calc-empty');
+
+      function calc() {
+        const hours  = parseFloat(hoursInput.value) || 0;
+        const rate   = parseFloat(rateInput.value)  || 0;
+        const annual = hours * rate * 12;
+
+        if (annual > 0) {
+          outputEl.textContent = '$' + Math.round(annual).toLocaleString('en-CA');
+          outputWrap.style.display = 'block';
+          emptyEl.style.display    = 'none';
+        } else {
+          outputWrap.style.display = 'none';
+          emptyEl.style.display    = 'block';
+        }
+      }
+
+      hoursInput.addEventListener('input', calc);
+      rateInput.addEventListener('input', calc);
+    })();
+
+    // ── Document checklist tabs ─────────────────
+    (function() {
+      document.querySelectorAll('.checklist-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.checklist-tab').forEach(t => {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          document.querySelectorAll('.checklist-panel').forEach(p => p.classList.remove('active'));
+
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          document.getElementById(tab.dataset.panel).classList.add('active');
+        });
+      });
+    })();
 
     // ── 1. Custom cursor ────────────────────────
     const cursorDot  = document.querySelector('.cursor-dot');
